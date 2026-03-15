@@ -4,6 +4,7 @@ import { FiGithub, FiLinkedin, FiMail, FiChevronDown } from 'react-icons/fi'
 import { personal } from '../../data/portfolioData'
 import ParticleField from '../ui/ParticleField'
 import MagneticButton from '../ui/MagneticButton'
+import { resolveAssetUrl } from '../../utils/assetUrl'
 
 const wordVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -130,7 +131,7 @@ export default function Hero() {
             </MagneticButton>
             <MagneticButton>
               <a
-                href="/dawood-cv.pdf"
+                href={resolveAssetUrl('/faraz-cv.pdf')}
                 download
                 className="border border-accent-cyan/30 text-accent-cyan px-8 py-3.5 rounded-xl hover:bg-accent-cyan/10 hover:border-accent-cyan/60 transition-all duration-300 inline-block"
               >
@@ -178,18 +179,18 @@ export default function Hero() {
             }}
           >
             <div className="absolute inset-[6%] bg-bg-primary rounded-[inherit] flex items-center justify-center overflow-hidden">
-              <img src="/profile.png" alt="Dawood Ahmad" className="w-full h-full object-cover" />
+              <img src={resolveAssetUrl('/profile.png')} alt="Muhammad Faraz" className="w-full h-full object-cover" />
             </div>
           </div>
 
           {/* Floating cards */}
           <div className="absolute top-0 right-0 sm:-right-4 float-card-1 bg-bg-card/80 backdrop-blur border border-accent-cyan/15 px-4 py-3 rounded-xl text-xs flex items-center gap-2">
-            <img src="/logos/comsats.png" alt="COMSATS" className="w-6 h-6 object-contain" />
+            <img src={resolveAssetUrl('/logos/comsats.png')} alt="COMSATS" className="w-6 h-6 object-contain" />
             <span className="text-white font-medium">COMSATS</span>
             <span className="text-text-muted">CS 2027</span>
           </div>
           <div className="absolute bottom-4 left-0 sm:-left-8 float-card-2 bg-bg-card/80 backdrop-blur border border-accent-purple/15 px-4 py-3 rounded-xl text-xs flex items-center gap-2">
-            <img src="/logos/developershub-hero.png" alt="DevelopersHub" className="w-6 h-6 object-contain" />
+            <img src={resolveAssetUrl('/logos/developershub-hero.png')} alt="DevelopersHub" className="w-6 h-6 object-contain" />
             <span className="text-white font-medium">DevelopersHub</span>
             <span className="text-text-muted">Intern</span>
           </div>

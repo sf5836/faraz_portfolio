@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion' // eslint-disable-line no-unused-vars
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
 import { projects } from '../../data/portfolioData'
 import { fadeInUp, staggerContainer } from '../../utils/animations'
 import GlowCard from '../ui/GlowCard'
+import { resolveAssetUrl } from '../../utils/assetUrl'
 
 const filters = [
   { label: 'All', value: 'all' },
@@ -70,7 +71,7 @@ export default function Projects() {
                   {project.image && (
                     <div className="relative w-full h-44 overflow-hidden bg-bg-elevated">
                       <img
-                        src={project.image}
+                        src={resolveAssetUrl(project.image)}
                         alt={project.title}
                         className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
                       />

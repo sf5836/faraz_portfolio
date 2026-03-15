@@ -1,4 +1,4 @@
-# Dawood Ahmad — Portfolio
+# Muhammad Faraz — Portfolio
 
 A modern, animated developer portfolio built with **React 19**, **Vite**, **Tailwind CSS**, **Framer Motion**, and **GSAP**.
 
@@ -27,14 +27,14 @@ A modern, animated developer portfolio built with **React 19**, **Vite**, **Tail
 
 ## Tech Stack
 
-| Category       | Technologies                                      |
-| -------------- | ------------------------------------------------- |
-| **Framework**  | React 19, Vite 7                                  |
-| **Styling**    | Tailwind CSS 3, PostCSS, Custom CSS               |
-| **Animation**  | Framer Motion, GSAP                               |
-| **Icons**      | React Icons (Feather)                              |
-| **Contact**    | EmailJS                                           |
-| **Other**      | React CountUp, React Type Animation, Intersection Observer |
+| Category | Technologies |
+| --- | --- |
+| **Framework** | React 19, Vite 7 |
+| **Styling** | Tailwind CSS 3, PostCSS, Custom CSS |
+| **Animation** | Framer Motion, GSAP |
+| **Icons** | React Icons (Feather) |
+| **Contact** | EmailJS |
+| **Other** | React CountUp, React Type Animation, Intersection Observer |
 
 ---
 
@@ -49,10 +49,10 @@ A modern, animated developer portfolio built with **React 19**, **Vite**, **Tail
 
 ```bash
 # Clone the repository
-git clone https://github.com/dawoodahmad018/portfolio.git
+git clone https://github.com/sf5836/faraz-portfolio.git
 
 # Navigate into the project
-cd portfolio
+cd faraz-portfolio
 
 # Install dependencies
 npm install
@@ -61,7 +61,7 @@ npm install
 npm run dev
 ```
 
-The app will be running at **http://localhost:5173**
+The app will be running at <http://localhost:5173>
 
 ### Build for Production
 
@@ -81,7 +81,7 @@ npm run preview
 
 ## Project Structure
 
-```
+```text
 ├── public/
 │   ├── certificates/       # Certificate images
 │   ├── logos/               # Company & university logos
@@ -140,12 +140,24 @@ Add project screenshots to `public/projects/` and reference them in `portfolioDa
 Edit **`src/utils/emailConfig.js`** with your own EmailJS credentials:
 
 ```js
-export const emailConfig = {
-  serviceId: 'your_service_id',
-  templateId: 'your_template_id',
-  publicKey: 'your_public_key',
+export const EMAIL_CONFIG = {
+  SERVICE_ID: 'your_service_id',
+  TEMPLATE_ID: 'your_template_id',
+  PUBLIC_KEY: 'your_public_key',
+  TO_EMAIL: 'your@email.com',
 }
 ```
+
+Your EmailJS template should include these variables for delivery:
+
+- `to_email`
+- `to_name`
+- `from_name`
+- `from_email`
+- `subject`
+- `message`
+- `reply_to`
+- `sent_at`
 
 Sign up at [emailjs.com](https://www.emailjs.com/) to get your credentials.
 
@@ -171,4 +183,4 @@ This project is open source and available for personal use. Feel free to fork an
 
 ---
 
-**Built with ❤️ by [Dawood Ahmad](https://github.com/dawoodahmad018)**
+**Built with ❤️ by [Muhammad Faraz](https://github.com/sf5836)**

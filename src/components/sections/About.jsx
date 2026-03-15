@@ -3,11 +3,11 @@ import { motion } from 'framer-motion'
 import { fadeInLeft, fadeInRight } from '../../utils/animations'
 
 const codeLines = [
-  { text: '# dawood.profile ✦', type: 'comment' },
+  { text: '# faraz.profile ✦', type: 'comment' },
   { text: '', type: 'blank' },
-  { text: 'name = ', type: 'var', value: '"Dawood Ahmad"' },
+  { text: 'name = ', type: 'var', value: '"Muhammad Faraz"' },
   { text: 'role = ', type: 'var', value: '"Full Stack Web Developer"' },
-  { text: 'location = ', type: 'var', value: '"Gojra, PK \ud83c\uddf5\ud83c\uddf0"' },
+  { text: 'location = ', type: 'var', value: '"Chishtian, PK \ud83c\uddf5\ud83c\uddf0"' },
   { text: '', type: 'blank' },
   { text: 'skills = {', type: 'var', value: '' },
   { text: '  "Frontend": ', type: 'indent', value: '["React", "Tailwind"],' },
@@ -77,7 +77,7 @@ function CodeTerminal() {
           <span className="w-3 h-3 rounded-full bg-[#28c840]" />
         </div>
         <span className="font-mono text-xs text-text-muted mx-auto pr-8">
-          dawood.py — Python 3.11
+          faraz.py — Python 3.11
         </span>
       </div>
       {/* Body */}
@@ -146,7 +146,7 @@ export default function About() {
             {/* Pills */}
             <div className="flex flex-wrap gap-3 mt-6">
               <span className="bg-bg-card border border-white/[0.06] rounded-full px-4 py-2 text-sm text-text-muted">
-                📍 Gojra, Punjab, Pakistan
+                📍 Chishtian, Punjab, Pakistan
               </span>
               <span className="bg-bg-card border border-white/[0.06] rounded-full px-4 py-2 text-sm text-accent-cyan">
                 🟢 Open to Opportunities

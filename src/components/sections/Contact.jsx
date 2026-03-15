@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion' // eslint-disable-line no-unused-vars
 import emailjs from '@emailjs/browser'
 import toast from 'react-hot-toast'
 import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiCheckCircle, FiGithub } from 'react-icons/fi'
@@ -82,26 +82,77 @@ export default function Contact() {
 
   const handleSubmit = async () => {
     if (!validateForm()) return
+
+    const serviceId = EMAIL_CONFIG.SERVICE_ID?.trim()
+    const templateId = EMAIL_CONFIG.TEMPLATE_ID?.trim()
+    const publicKey = EMAIL_CONFIG.PUBLIC_KEY?.trim()
+    const toEmail = EMAIL_CONFIG.TO_EMAIL?.trim()
+
+    const invalidConfigValues = new Set([
+      '__ejs-test-mail-service__',
+      'your_service_id',
+      'your_template_id',
+      'your_public_key',
+    ])
+
+    const hasMissingConfig = [
+      serviceId,
+      templateId,
+      publicKey,
+      toEmail,
+    ].some((value) => !value)
+
+    const hasPlaceholderConfig = [
+      serviceId,
+      templateId,
+      publicKey,
+    ].some((value) => invalidConfigValues.has(value))
+
+    if (hasMissingConfig || hasPlaceholderConfig) {
+      toast.error('Contact form is not configured correctly. Add your real EmailJS template ID from the dashboard.', {
+        style: { background: '#13131a', color: '#e8e8f0', border: '1px solid rgba(244,63,142,0.2)' },
+      })
+      return
+    }
+
     setStatus('loading')
 
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
+      name: formData.name,
+      email: formData.email,
       subject: formData.subject,
+      from_subject: formData.subject,
       message: formData.message,
-      to_email: EMAIL_CONFIG.TO_EMAIL,
+      // Keep multiple recipient aliases for EmailJS template compatibility.
+      to_email: toEmail,
+      to: toEmail,
+      recipient_email: toEmail,
+      to_mail: toEmail,
+      user_email: toEmail,
+      to_name: 'Muhammad Faraz',
       reply_to: formData.email,
+      sent_at: new Date().toLocaleString(),
     }
 
     try {
-      await emailjs.send(
-        EMAIL_CONFIG.SERVICE_ID,
-        EMAIL_CONFIG.TEMPLATE_ID,
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
         templateParams,
-        EMAIL_CONFIG.PUBLIC_KEY
+        publicKey
       )
+
+      if (response?.status !== 200) {
+        throw new Error(`Unexpected EmailJS response: ${response?.status ?? 'unknown'}`)
+      }
+
+      // Useful when debugging delivery issues with EmailJS dashboard activity logs.
+      console.info('EmailJS message queued:', response.status, response.text)
+
       setStatus('success')
-      toast.success("Message sent! I'll reply within 24 hours. 🚀", {
+      toast.success(`Message sent to ${toEmail}! 🚀`, {
         style: { background: '#13131a', color: '#e8e8f0', border: '1px solid rgba(0,245,196,0.2)' },
         iconTheme: { primary: '#00f5c4', secondary: '#0a0a0c' },
         duration: 5000,
@@ -110,9 +161,17 @@ export default function Contact() {
         setFormData({ name: '', email: '', subject: '', message: '' })
         setStatus('idle')
       }, 3000)
-    } catch {
+    } catch (error) {
+      console.error('EmailJS send failed:', error)
       setStatus('error')
-      toast.error('Oops! Something went wrong. Please try emailing directly.', {
+      const rawMessage = error?.text || error?.message || ''
+      const friendlyMessage = /gmail_api|insufficient authentication scopes/i.test(rawMessage)
+        ? `EmailJS Gmail service "${serviceId}" needs re-authorization. In EmailJS dashboard, open Email Services, reconnect Gmail, and grant all requested scopes, then try again.`
+        : /template id not found/i.test(rawMessage)
+          ? `EmailJS could not find template "${templateId}" for service "${serviceId}". In EmailJS dashboard, confirm this template ID exists in the same account as your public key and is connected to that service.`
+          : `Oops! Message failed to send${rawMessage ? ` (${rawMessage})` : ''}.`
+
+      toast.error(friendlyMessage, {
         style: { background: '#13131a', color: '#e8e8f0', border: '1px solid rgba(244,63,142,0.2)' },
       })
       setTimeout(() => setStatus('idle'), 3000)
@@ -128,8 +187,8 @@ export default function Contact() {
   const contactItems = [
     { icon: FiMail, label: 'Email', value: personal.email, action: copyEmail, actionLabel: copied ? 'Copied! ✓' : 'Copy' },
     { icon: FiPhone, label: 'Phone', value: personal.phone },
-    { icon: FiMapPin, label: 'Location', value: 'Gojra, Punjab, Pakistan 🇵🇰' },
-    { icon: FiLinkedin, label: 'LinkedIn', value: 'linkedin.com/in/dawoodahmad777', href: personal.linkedin },
+    { icon: FiMapPin, label: 'Location', value: 'Chishtian, Punjab, Pakistan 🇵🇰' },
+    { icon: FiLinkedin, label: 'LinkedIn', value: 'linkedin.com/in/faraz036', href: personal.linkedin },
     { icon: FiCheckCircle, label: 'Status', value: 'Open to Internships & Projects', isStatus: true },
   ]
 
@@ -173,7 +232,7 @@ export default function Contact() {
             viewport={{ once: true, margin: '-80px' }}
           >
             <div className="space-y-0">
-              {contactItems.map(({ icon: Icon, label, value, action, actionLabel, href, isStatus }, i) => (
+              {contactItems.map(({ icon: Icon, label, value, action, actionLabel, href, isStatus }) => ( // eslint-disable-line no-unused-vars
                 <div
                   key={label}
                   className="flex items-start gap-4 py-5 border-b border-white/5"
@@ -222,7 +281,7 @@ export default function Contact() {
                 { icon: FiGithub, href: personal.github },
                 { icon: FiLinkedin, href: personal.linkedin },
                 { icon: FiMail, href: `mailto:${personal.email}` },
-              ].map(({ icon: Icon, href }, i) => (
+              ].map(({ icon: Icon, href }, i) => ( // eslint-disable-line no-unused-vars
                 <a
                   key={i}
                   href={href}
@@ -237,12 +296,16 @@ export default function Contact() {
           </motion.div>
 
           {/* Right — Contact Form */}
-          <motion.div
+          <motion.form
             variants={fadeInRight}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             className="space-y-5"
+            onSubmit={(e) => {
+              e.preventDefault()
+              handleSubmit()
+            }}
           >
             <FloatingInput
               label="Your Name *"
@@ -280,7 +343,7 @@ export default function Contact() {
             />
 
             <button
-              onClick={handleSubmit}
+              type="submit"
               disabled={status === 'loading'}
               className="w-full py-4 rounded-xl font-semibold text-bg-primary transition-all duration-300 hover:brightness-110 hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed relative overflow-hidden"
               style={{ background: buttonBg[status] }}
@@ -290,7 +353,7 @@ export default function Contact() {
               )}
               {buttonText[status]}
             </button>
-          </motion.div>
+          </motion.form>
         </div>
       </div>
     </section>

@@ -62,7 +62,7 @@ export default function LoadingScreen() {
               transition={{ duration: 0.5 }}
               className="font-display text-[120px] font-bold text-white leading-none select-none"
             >
-              DA
+              MF
             </motion.div>
 
             {/* Name */}
@@ -72,7 +72,7 @@ export default function LoadingScreen() {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="font-mono text-xs text-text-muted tracking-[0.3em] uppercase mt-4"
             >
-              Dawood Ahmad
+              Muhammad Faraz
             </motion.div>
 
             {/* Progress bar */}

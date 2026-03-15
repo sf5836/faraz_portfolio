@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiGithub, FiMenu, FiX } from 'react-icons/fi'
 import { navLinks, personal } from '../../data/portfolioData'
 import MagneticButton from '../ui/MagneticButton'
+import { resolveAssetUrl } from '../../utils/assetUrl'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -61,7 +62,7 @@ export default function Navbar() {
           onClick={(e) => { e.preventDefault(); handleNavClick('#home') }}
           className="flex items-center gap-2"
         >
-          <img src="/profile.png" alt="Dawood Ahmad" className="w-9 h-9 rounded-full object-cover border-2 border-accent-cyan/40" />
+          <img src={resolveAssetUrl('/profile.png')} alt="Muhammad Faraz" className="w-9 h-9 rounded-full object-cover border-2 border-accent-cyan/40" />
           <span className="w-2 h-2 rounded-full bg-accent-cyan animate-glow-pulse" />
         </a>
 

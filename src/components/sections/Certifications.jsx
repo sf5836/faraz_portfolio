@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion' // eslint-disable-line no-unused-vars
 import { FiX, FiExternalLink } from 'react-icons/fi'
-import { certifications, personal } from '../../data/portfolioData'
+import { certifications } from '../../data/portfolioData'
 import { flipIn, staggerContainer } from '../../utils/animations'
+import { resolveAssetUrl } from '../../utils/assetUrl'
 
 export default function Certifications() {
   const [selectedCert, setSelectedCert] = useState(null)
@@ -41,7 +42,7 @@ export default function Certifications() {
               {cert.image && (
                 <div className="relative w-full lg:w-1/2 h-56 lg:h-auto overflow-hidden bg-bg-elevated">
                   <img
-                    src={cert.image}
+                    src={resolveAssetUrl(cert.image)}
                     alt={cert.name}
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
@@ -70,7 +71,7 @@ export default function Certifications() {
                     style={{ backgroundColor: `${cert.color}20` }}
                   >
                     {cert.logo ? (
-                      <img src={cert.logo} alt={cert.issuer} className="w-8 h-8 object-contain" />
+                      <img src={resolveAssetUrl(cert.logo)} alt={cert.issuer} className="w-8 h-8 object-contain" />
                     ) : (
                       <span className="text-2xl">{cert.icon}</span>
                     )}
@@ -125,7 +126,7 @@ export default function Certifications() {
               {cert.image && (
                 <div className="relative w-full h-44 overflow-hidden bg-bg-elevated">
                   <img
-                    src={cert.image}
+                    src={resolveAssetUrl(cert.image)}
                     alt={cert.name}
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
                   />
@@ -147,7 +148,7 @@ export default function Certifications() {
                     style={{ backgroundColor: `${cert.color}20` }}
                   >
                     {cert.logo ? (
-                      <img src={cert.logo} alt={cert.issuer} className="w-7 h-7 object-contain" />
+                      <img src={resolveAssetUrl(cert.logo)} alt={cert.issuer} className="w-7 h-7 object-contain" />
                     ) : (
                       <span className="text-xl">{cert.icon}</span>
                     )}
@@ -177,17 +178,6 @@ export default function Certifications() {
           ))}
         </motion.div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-12">
-          <a
-            href={personal.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-text-muted hover:text-accent-cyan transition-colors font-mono text-sm underline underline-offset-4"
-          >
-            More certifications on my LinkedIn →
-          </a>
-        </div>
       </div>
 
       {/* Lightbox Modal */}
@@ -224,7 +214,7 @@ export default function Certifications() {
               {selectedCert.image && (
                 <div className="w-full max-h-[60vh] overflow-hidden bg-white/5">
                   <img
-                    src={selectedCert.image}
+                    src={resolveAssetUrl(selectedCert.image)}
                     alt={selectedCert.name}
                     className="w-full h-full object-contain"
                   />
@@ -239,7 +229,7 @@ export default function Certifications() {
                     style={{ backgroundColor: `${selectedCert.color}20` }}
                   >
                     {selectedCert.logo ? (
-                      <img src={selectedCert.logo} alt={selectedCert.issuer} className="w-8 h-8 object-contain" />
+                      <img src={resolveAssetUrl(selectedCert.logo)} alt={selectedCert.issuer} className="w-8 h-8 object-contain" />
                     ) : (
                       <span className="text-2xl">{selectedCert.icon}</span>
                     )}

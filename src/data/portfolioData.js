@@ -1,5 +1,5 @@
 export const personal = {
-  name: "Dawood Ahmad",
+  name: "Muhammad Faraz",
   role: "Full Stack Web Developer",
   taglines: [
     "Full Stack Web Developer",
@@ -9,11 +9,11 @@ export const personal = {
     "CS Student @ COMSATS",
     "Problem Solver 🚀"
   ],
-  email: "dawoodahmad777777@gmail.com",
-  phone: "+92 311 1756820",
-  location: "Gojra, Punjab, Pakistan",
-  linkedin: "https://www.linkedin.com/in/dawoodahmad777",
-  github: "https://github.com/dawoodahmad018",
+  email: "farazdhuddi1320@gmail.com",
+  phone: "+92 303 3272180",
+  location: "Chishtian, Punjab, Pakistan",
+  linkedin: "https://www.linkedin.com/in/faraz036",
+  github: "https://github.com/sf5836",
   available: true,
   bio: "Full Stack Web Developer crafting modern web applications with the MERN stack. Currently diving deep into AI/ML and Data Science to build intelligent, data-driven solutions.",
 }
@@ -91,7 +91,7 @@ export const certifications = [
     year: "2024",
     color: "#003087",
     logo: "/logos/forage.png",
-    image: "/certificates/jpmorgan.jpg",
+    image: "/certificates/jpmorgan.png",
     description: "Completed virtual software engineering tasks including interface design and system architecture."
   },
   {
@@ -102,7 +102,7 @@ export const certifications = [
     year: "2024",
     color: "#1F70C1",
     logo: "/logos/ibm.png",
-    image: "/certificates/ibm-data-science.jpg",
+    image: "/certificates/ibm-data-science.png",
     description: "Foundations of data science, tools, methodologies, and real-world applications."
   },
   {
@@ -113,7 +113,7 @@ export const certifications = [
     year: "2024",
     color: "#0096D6",
     logo: "/logos/hp.png",
-    image: "/certificates/critical-thinking.jpg",
+    image: "/certificates/critical-thinking.png",
     description: "Analytical frameworks for evaluating AI tools and making data-driven decisions."
   },
   {
@@ -124,7 +124,7 @@ export const certifications = [
     year: "2024",
     color: "#1A1A2E",
     logo: "/logos/ea.png",
-    image: "/certificates/ea-forage.jpg",
+    image: "/certificates/ea-forage.png",
     description: "Completed software engineering simulation covering feature development and code optimization."
   },
   {
@@ -135,7 +135,7 @@ export const certifications = [
     year: "2024",
     color: "#00A4EF",
     logo: "/logos/microsoft.png",
-    image: "/certificates/python-fundamentals.jpg",
+    image: "/certificates/python-fundamentals.png",
     description: "Core Python programming concepts, syntax, and practical application development."
   },
   {
@@ -146,7 +146,7 @@ export const certifications = [
     year: "2025",
     color: "#00f5c4",
     logo: "/logos/developershub.png",
-    image: "/certificates/developershub.jpg",
+    image: "/certificates/developershub.png",
     description: "Full-stack web development with MongoDB, Express.js, React, and Node.js."
   },
   {
@@ -157,7 +157,7 @@ export const certifications = [
     year: "2025",
     color: "#86BC25",
     logo: "/logos/deloitte.png",
-    image: "/certificates/Deloitte Data Analytics Job Simulation Xertificate.jpg",
+    image: "/certificates/Deloitte Data Analytics Job Simulation Xertificate.png",
     description: "Completed Deloitte's data analytics virtual experience covering data visualization, analysis, and business insights."
   },
 ]
@@ -165,29 +165,29 @@ export const certifications = [
 export const projects = [
   {
     id: 1,
-    title: "CR7 Analytics — AI-Powered Career Visualization",
-    description: "Full-stack career visualization platform for CR7's stats (2002–2026) with interactive 3D scenes, AI-powered kit detection using TensorFlow/Keras CNN, Three.js timelines, and Chart.js dashboards. Built with a modular three-service architecture.",
-    longDescription: "Built a full-stack enterprise web application that visualizes Cristiano Ronaldo's complete career statistics (2002–2026) through interactive 3D scenes and dynamic charts. The platform features an AI-powered kit detection system using a custom-trained TensorFlow/Keras CNN model served via a Flask microservice, enabling users to upload images and identify the club jersey with confidence scoring. The frontend uses React with Three.js for immersive 3D bar timelines, Chart.js for statistical dashboards, and Redux Toolkit for state management. The backend is a Node.js/Express REST API with MongoDB, supporting full CRUD operations, rate limiting, file uploads, and a robust fallback detection pipeline. Designed with a modular architecture across three services — React client, Express API server, and Python ML microservice — communicating over REST.",
-    tech: ["React.js", "Three.js", "Node.js", "Express.js", "MongoDB", "TensorFlow", "Flask", "Chart.js", "Redux"],
-    github: "https://github.com/dawoodahmad018",
+    title: "3D Animated Furniture Website",
+    description: "An immersive 3D animated furniture e-commerce website designed in Figma and built with React and Node.js. Features smooth 3D product animations, interactive UI, and a SQL-backed product management system.",
+    tech: ["Figma", "React.js", "Node.js", "SQL"],
+    github: "https://github.com/sf5836",
     live: null,
     featured: true,
-    category: "ml",
-    image: "/projects/cr7-analytics.png",
-    gradient: "from-red-500/20 to-yellow-500/20",
+    category: "frontend",
+    image: "/projects/furniture-website.jpeg",
+    gradient: "from-amber-500/20 to-orange-500/20",
     number: "01"
   },
   {
     id: 2,
-    title: "Real Time Chat Application",
-    description: "A full-stack real-time chat application with instant messaging, user authentication, online status indicators, and responsive UI. Built with Socket.IO for real-time bidirectional communication.",
-    tech: ["React.js", "Node.js", "Express.js", "Socket.IO", "MongoDB", "JWT"],
-    github: "https://github.com/dawoodahmad018",
+    title: "CR7 Analytics — AI-Powered Career Visualization",
+    description: "Full-stack career visualization platform for CR7's stats (2002–2026) with interactive 3D scenes, AI-powered kit detection using TensorFlow/Keras CNN, Three.js timelines, and Chart.js dashboards. Built with a modular three-service architecture.",
+    longDescription: "Built a full-stack enterprise web application that visualizes Cristiano Ronaldo's complete career statistics (2002–2026) through interactive 3D scenes and dynamic charts. The platform features an AI-powered kit detection system using a custom-trained TensorFlow/Keras CNN model served via a Flask microservice, enabling users to upload images and identify the club jersey with confidence scoring. The frontend uses React with Three.js for immersive 3D bar timelines, Chart.js for statistical dashboards, and Redux Toolkit for state management. The backend is a Node.js/Express REST API with MongoDB, supporting full CRUD operations, rate limiting, file uploads, and a robust fallback detection pipeline. Designed with a modular architecture across three services — React client, Express API server, and Python ML microservice — communicating over REST.",
+    tech: ["React.js", "Three.js", "Node.js", "Express.js", "MongoDB", "TensorFlow", "Flask", "Chart.js", "Redux"],
+    github: "https://github.com/sf5836",
     live: null,
     featured: false,
-    category: "fullstack",
-    image: "/projects/chat-app.png",
-    gradient: "from-blue-500/20 to-cyan-500/20",
+    category: "ml",
+    image: "/projects/cr7-analytics.png",
+    gradient: "from-red-500/20 to-yellow-500/20",
     number: "02"
   },
   {
@@ -195,7 +195,7 @@ export const projects = [
     title: "Sentiment Analyzer",
     description: "A machine learning-based sentiment analysis tool that classifies text into positive, negative, or neutral sentiments. Features real-time text analysis with NLP techniques and visualization of results.",
     tech: ["Python", "NLTK", "Scikit-learn", "Flask", "TextBlob", "Pandas"],
-    github: "https://github.com/dawoodahmad018",
+    github: "https://github.com/sf5836",
     live: null,
     featured: false,
     category: "ml",
@@ -208,13 +208,39 @@ export const projects = [
     title: "Portfolio Website",
     description: "This portfolio website — built with React, Framer Motion, GSAP, and Tailwind CSS. Features cinematic animations, particle systems, and EmailJS contact integration.",
     tech: ["React.js", "Framer Motion", "GSAP", "Tailwind CSS", "EmailJS"],
-    github: "https://github.com/dawoodahmad018",
+    github: "https://github.com/sf5836",
     live: "#",
     featured: false,
     category: "frontend",
     image: "/projects/portfolio.png",
     gradient: "from-cyan-500/20 to-green-500/20",
     number: "04"
+  },
+  {
+    id: 5,
+    title: "Study Planner With Smart Reminder",
+    description: "A web-based study planner that helps students organize their schedule with smart reminders. Features task management, study session tracking, and automated notifications to keep learners on track.",
+    tech: ["React.js", "TypeScript", "Node.js", "MongoDB"],
+    github: "https://github.com/sf5836",
+    live: null,
+    featured: false,
+    category: "fullstack",
+    image: "/projects/study-planner.jpeg",
+    gradient: "from-indigo-500/20 to-blue-500/20",
+    number: "05"
+  },
+  {
+    id: 6,
+    title: "Online Internship & Job Portal",
+    description: "A full-stack job and internship portal where students can discover opportunities, apply for positions, and manage applications. Includes employer dashboards for posting and managing listings.",
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB"],
+    github: "https://github.com/sf5836",
+    live: null,
+    featured: false,
+    category: "fullstack",
+    image: "/projects/job-portal.jpeg",
+    gradient: "from-orange-500/20 to-pink-500/20",
+    number: "06"
   },
 ]
 

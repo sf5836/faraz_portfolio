@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiArrowUp, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 import { navLinks, personal } from '../../data/portfolioData'
+import { resolveAssetUrl } from '../../utils/assetUrl'
 
 export default function Footer() {
   const [showTop, setShowTop] = useState(false)
@@ -35,7 +36,7 @@ export default function Footer() {
           <div className="flex flex-col items-center lg:items-start gap-4">
             <div className="flex items-center gap-3">
               <img
-                src="/profile.png"
+                src={resolveAssetUrl('/profile.png')}
                 alt={personal.name}
                 className="w-12 h-12 rounded-full object-cover border-2 border-accent-cyan/30"
               />
